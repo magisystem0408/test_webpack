@@ -1,0 +1,14 @@
+doctype html
+
+//- 変数定義
+block locals
+  - var title ="mamushiサイト";
+
+html(lang ="en")
+  head
+    meta(charset ="UTF-8")
+    mata(name="viewport" content="width=device-width, initial-scale=1.0")
+    title #{title}
+  body
+    include _memu.pug
+    block content

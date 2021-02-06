@@ -25,7 +25,12 @@ module.exports = {
     },
     {
         test: /\.(png|jpg)/,
-        use:[{
+        // type:'asset/resource',
+        // generator:{
+        //     filename:'images/[name][ext]'
+        // },
+        use:[
+        {
             loader: 'file-loader',
             options: {
                 esModule:false,
@@ -33,6 +38,20 @@ module.exports = {
             }
         },
         ],
+    },
+    {
+        test: /\.pug/,
+        use:[
+            {
+                loader:'html-loader',
+            },
+            {
+                loader:'pug-html-loader',
+                options:{
+                    pretty: true,
+                }
+            },
+        ]
     },
     ],
     },
@@ -44,10 +63,17 @@ module.exports = {
         }
         ),
         new HtmlWebpackPlugin({
-
             // 参照させる値
-            template: './src/templates/index.html',
+            template: './src/templates/index.pug',
+            filename:'index.html',
         }),
+
+        new HtmlWebpackPlugin({
+            // 参照させる値
+            template: './src/templates/access.pug',
+            filename:'access.html',
+        }),
+
         new CleanWebpackPlugin(),
 
 
