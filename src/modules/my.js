@@ -1,5 +1,5 @@
 export default () => {
-    console.log("mamushi");
+    console.log("this is module");
 }
 
 
